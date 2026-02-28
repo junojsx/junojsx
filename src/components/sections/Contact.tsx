@@ -1,0 +1,168 @@
+import { useState, type FormEvent } from 'react'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Github, Linkedin, Mail, Send } from 'lucide-react'
+
+const socialLinks = [
+  {
+    href: 'mailto:you@example.com',
+    label: 'Send email to you@example.com',
+    Icon: Mail,
+    external: false,
+  },
+  {
+    href: 'https://github.com/yourusername',
+    label: 'GitHub profile (opens in new tab)',
+    Icon: Github,
+    external: true,
+  },
+  {
+    href: 'https://linkedin.com/in/yourprofile',
+    label: 'LinkedIn profile (opens in new tab)',
+    Icon: Linkedin,
+    external: true,
+  },
+]
+
+export default function Contact() {
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitting, setSubmitting] = useState(false)
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSubmitting(true)
+    // Replace with Formspree, EmailJS, or your preferred service
+    setTimeout(() => {
+      setSubmitting(false)
+      setStatus('success')
+    }, 800)
+  }
+
+  return (
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="bg-light-gray py-24"
+    >
+      <div className="max-w-2xl mx-auto px-4">
+        <p className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3">
+          Let's connect
+        </p>
+        <h2
+          id="contact-heading"
+          className="text-3xl font-bold text-dark-gray text-center mb-4"
+        >
+          Get in Touch
+        </h2>
+        <p className="text-center text-dark-gray/70 mb-10 max-w-md mx-auto">
+          Available for full-time roles, freelance work, and accessibility consulting.
+          I'd love to hear about what you're building.
+        </p>
+
+        {/* Social links */}
+        <div className="flex justify-center gap-4 mb-12">
+          {socialLinks.map(({ href, label, Icon, external }) => (
+            <a
+              key={href}
+              href={href}
+              aria-label={label}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener noreferrer' : undefined}
+              className="p-3 rounded-full bg-deep-purple text-white
+                         hover:bg-hover-active transition-colors"
+            >
+              <Icon className="h-6 w-6" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+
+        {/* Contact form */}
+        <form
+          onSubmit={handleSubmit}
+          aria-label="Contact form"
+          noValidate
+          className="space-y-6 bg-white p-8 rounded-2xl shadow-sm"
+        >
+          <div className="space-y-1.5">
+            <Label htmlFor="contact-name" className="text-dark-gray font-medium">
+              Name
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
+            <Input
+              id="contact-name"
+              name="name"
+              type="text"
+              autoComplete="name"
+              required
+              aria-required="true"
+              placeholder="Your full name"
+              className="border-input-focus/40 focus:border-input-focus"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="contact-email" className="text-dark-gray font-medium">
+              Email
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
+            <Input
+              id="contact-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              aria-required="true"
+              placeholder="you@example.com"
+              className="border-input-focus/40 focus:border-input-focus"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="contact-message" className="text-dark-gray font-medium">
+              Message
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span className="sr-only">(required)</span>
+            </Label>
+            <Textarea
+              id="contact-message"
+              name="message"
+              required
+              aria-required="true"
+              rows={5}
+              placeholder="Tell me what you're working on…"
+              className="border-input-focus/40 focus:border-input-focus resize-none"
+            />
+          </div>
+
+          <Button
+            type="submit"
+            disabled={submitting || status === 'success'}
+            className="w-full bg-deep-purple hover:bg-hover-active text-white
+                       disabled:opacity-60"
+          >
+            <Send className="mr-2 h-4 w-4" aria-hidden="true" />
+            {submitting ? 'Sending…' : status === 'success' ? 'Sent!' : 'Send Message'}
+          </Button>
+
+          {/* Live region — announced by screen readers on state change */}
+          <div aria-live="polite" aria-atomic="true" className="text-center text-sm min-h-5">
+            {status === 'success' && (
+              <p className="text-soft-teal font-medium">
+                Message sent! I'll get back to you soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-600 font-medium" role="alert">
+                Something went wrong. Please try again or email me directly.
+              </p>
+            )}
+          </div>
+        </form>
+      </div>
+    </section>
+  )
+}
