@@ -1,4 +1,14 @@
-export default function AboutMe() {
+import { useState } from "react";
+import { Pause, Play } from "lucide-react";
+
+export default function Home() {
+  // Respect prefers-reduced-motion — start paused if the user prefers it
+  const [paused, setPaused] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+
   return (
     <section
       id="home"
@@ -21,7 +31,7 @@ export default function AboutMe() {
             id="about-heading"
             className="text-4xl md:text-5xl font-bold text-dark-gray leading-tight mb-2"
           >
-            I'm <span className="text-deep-purple">Your Name,</span>
+            I'm <span className="text-deep-purple">Juno,</span>
             <br />
             a software
             <br />
@@ -50,10 +60,10 @@ export default function AboutMe() {
         </div>
 
         {/* Photo + decorations */}
-        <div className="relative flex justify-center items-end h-72 sm:h-96">
-          {/* Arch-shaped photo frame */}
+        <div className="relative flex justify-center items-end h-80 sm:h-[30rem]">
+          {/* Arch-shaped photo frame — larger than before */}
           <div
-            className="relative w-48 h-64 sm:w-60 sm:h-80 bg-deep-purple overflow-hidden"
+            className="relative w-56 h-72 sm:w-72 sm:h-96 bg-deep-purple overflow-hidden"
             style={{ borderRadius: "9999px 9999px 0 0" }}
             aria-hidden="true"
           >
@@ -61,8 +71,8 @@ export default function AboutMe() {
               src="justin.png"
               alt=""
               className="w-full h-full object-cover object-top"
-              width={240}
-              height={320}
+              width={288}
+              height={384}
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.display = "none";
@@ -75,57 +85,92 @@ export default function AboutMe() {
             />
           </div>
 
-          {/* Availability badge — spinning ring with sr-only text for AT */}
-          <div className="absolute top-0 right-2 sm:right-6 w-20 h-20 sm:w-24 sm:h-24">
-            <p className="sr-only">Available for freelance work</p>
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full animate-spin"
-              style={{ animationDuration: "12s" }}
-              aria-hidden="true"
-              focusable="false"
-            >
-              <defs>
-                <path
-                  id="badge-circle"
-                  d="M50,50 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0"
-                />
-              </defs>
-              <circle
-                cx="50"
-                cy="50"
-                r="46"
-                fill="white"
-                stroke="#4E3C51"
-                strokeWidth="1.5"
-              />
-              <text
-                fontSize="9.5"
-                fontWeight="700"
-                fill="#4E3C51"
-                letterSpacing="2.2"
-              >
-                <textPath href="#badge-circle">
-                  I'M AVAILABLE • FOR FREELANCE •
-                </textPath>
-              </text>
-            </svg>
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              aria-hidden="true"
-            >
+          {/* Availability badge — spinning ring with pause/play control */}
+          <div className="absolute top-0 right-2 sm:right-4">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32">
+              <p className="sr-only">Available for freelance work</p>
               <svg
-                viewBox="0 0 24 24"
-                className="w-5 h-5"
-                fill="none"
-                stroke="#4E3C51"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 110 110"
+                className="w-full h-full animate-spin"
+                style={{
+                  animationDuration: "12s",
+                  animationPlayState: paused ? "paused" : "running",
+                }}
+                aria-hidden="true"
                 focusable="false"
               >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                <defs>
+                  <path
+                    id="badge-circle"
+                    d="M55,55 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"
+                  />
+                </defs>
+                <circle
+                  cx="55"
+                  cy="55"
+                  r="54"
+                  fill="white"
+                  stroke="#4E3C51"
+                  strokeWidth="1.5"
+                />
+                <text
+                  fontSize="9.5"
+                  fontWeight="700"
+                  fill="#4E3C51"
+                  letterSpacing="2.2"
+                >
+                  <textPath href="#badge-circle">
+                    I'M AVAILABLE • FOR FREELANCE WORK •
+                  </textPath>
+                </text>
               </svg>
+              {/* Arrow in center */}
+              <div
+                className="absolute inset-0 flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="#4E3C51"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  focusable="false"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Pause / Play button — below the badge */}
+            <div className="flex justify-center mt-1.5">
+              <button
+                type="button"
+                onClick={() => setPaused((v) => !v)}
+                aria-label={
+                  paused
+                    ? "Play spinning badge animation"
+                    : "Pause spinning badge animation"
+                }
+                className="w-7 h-7 rounded-full bg-white border border-deep-purple/40
+                           flex items-center justify-center shadow-sm
+                           hover:bg-deep-purple hover:text-white hover:border-deep-purple
+                           transition-colors"
+              >
+                {paused ? (
+                  <Play
+                    className="w-3 h-3 text-deep-purple group-hover:text-white"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <Pause
+                    className="w-3 h-3 text-deep-purple group-hover:text-white"
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
             </div>
           </div>
 

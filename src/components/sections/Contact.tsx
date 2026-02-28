@@ -7,19 +7,19 @@ import { Github, Linkedin, Mail, Send } from "lucide-react";
 
 const socialLinks = [
   {
-    href: "mailto:you@example.com",
-    label: "Send email to you@example.com",
+    href: "mailto:junojsx@gmail.com",
+    label: "Send email to junojsx@gmail.com",
     Icon: Mail,
     external: false,
   },
   {
-    href: "https://github.com/yourusername",
+    href: "https://github.com/junojsx",
     label: "GitHub profile (opens in new tab)",
     Icon: Github,
     external: true,
   },
   {
-    href: "https://linkedin.com/in/yourprofile",
+    href: "https://www.linkedin.com/in/justinaquino-dev/",
     label: "LinkedIn profile (opens in new tab)",
     Icon: Linkedin,
     external: true,

@@ -1,24 +1,52 @@
 const experiences = [
   {
-    period: "JAN 2024 – PRESENT",
-    title: "Senior Accessibility Engineer",
-    company: "Company Name",
+    period: "FEB 2025 – PRESENT",
+    title: "Intermediate Software Implementation Specialist",
+    company: "Journal Technologies Inc.",
     description:
-      "Leading accessibility audits and remediation efforts. Establishing WCAG compliance standards and mentoring engineers on inclusive development practices.",
+      "Leading software deployments and managing client onboarding initiatives. Configuring systems, resolving technical issues, and ensuring successful product adoption.",
   },
   {
-    period: "MAR 2021 – JAN 2024",
-    title: "Frontend Developer",
-    company: "Company Name",
+    period: "FEB 2025 – PRESENT",
+    title: "Contract Accessibility Auditor",
+    company: "AudioEye",
     description:
-      "Built accessible, performant UI components in React and TypeScript. Collaborated with design teams to ensure inclusive experiences across products.",
+      "Evaluating digital products for WCAG compliance on a contract basis. Providing detailed remediation guidance to improving accessibility and usability.",
   },
   {
-    period: "JUN 2019 – MAR 2021",
-    title: "UI Developer",
-    company: "Company Name",
+    period: "AUG 2024 – FEB 2025",
+    title: "Full-Stack Engineer",
+    company: "Growth Dynamics",
     description:
-      "Developed responsive interfaces and contributed to UI enhancements, debugging, and refining component libraries.",
+      "Designing, building, and maintaining scalable front-end and back-end systems. Collaborating with cross-functional teams to delivering performant, user-focused applications.",
+  },
+  {
+    period: "NOV 2022 – AUG 2024",
+    title: "Accessibility Auditor I–II",
+    company: "ABILITY Digital Accessibility Inc.",
+    description:
+      "Performing manual and automated accessibility testing on web and SaaS platforms. Documenting findings and partnering with developers to driving remediation efforts.",
+  },
+  {
+    period: "SEPT 2022 – JUNE 2024",
+    title: "Data Entry Specialist",
+    company: "ABC Legal Services",
+    description:
+      "Inputting and managing large volumes of data with accuracy. Maintaining data integrity and ensuring timely updates across systems.",
+  },
+  {
+    period: "JAN 2022 – APR 2022",
+    title: "Software Engineering Apprentice",
+    company: "General Assembly",
+    description:
+      "Successfully completed 500+ hours of expert led instruction in HTML, CSS, and JavaScript, and hands on learning of MERN stack fundamentals and the industry's most in demand technologies. Built 4+ projects, including a full stack web application, and gained practical experience with version control, testing, and deployment best practices.",
+  },
+  {
+    period: "JUN 2014 – DEC 2022",
+    title: "Sous Chef",
+    company: "Ebaes Restaurant",
+    description:
+      "Supporting the head chef in daily kitchen operations. Overseeing food preparation, quality control, and team coordination. Ensuring a high standard of culinary excellence and efficient service.",
   },
 ];
 
