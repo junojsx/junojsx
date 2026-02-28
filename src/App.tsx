@@ -1,9 +1,9 @@
-import Navbar from '@/components/layout/Navbar'
-import AboutMe from '@/components/sections/AboutMe'
-import TechStack from '@/components/sections/TechStack'
-import MoreAboutMe from '@/components/sections/MoreAboutMe'
-import Projects from '@/components/sections/Projects'
-import Contact from '@/components/sections/Contact'
+import Navbar from "@/components/layout/Navbar";
+import Home from "@/components/sections/Home";
+import TechStack from "@/components/sections/TechStack";
+import MoreAboutMe from "@/components/sections/MoreAboutMe";
+import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
 
 export default function App() {
   return (
@@ -20,7 +20,7 @@ export default function App() {
         is activated, without placing it in the natural tab order.
       */}
       <main id="main-content" tabIndex={-1} className="outline-none">
-        <AboutMe />
+        <Home />
         <TechStack />
         <MoreAboutMe />
         <Projects />
@@ -31,9 +31,9 @@ export default function App() {
       <footer className="bg-deep-purple text-white text-center py-6 text-sm">
         {/* text-white/80 on deep-purple → ~6.4:1 ✅  (text-soft-lavender was 4.03:1 ❌) */}
         <p className="text-white/80">
-          © {new Date().getFullYear()}{' '}
-          <span className="text-white font-medium">junojsx</span>
-          {' '}— Built with React, Vite & TailwindCSS
+          © {new Date().getFullYear()}{" "}
+          <span className="text-white font-medium">junojsx</span> — Built with
+          React, Vite & TailwindCSS
         </p>
         {/* text-white/70 on deep-purple → ~5.4:1 ✅  (text-soft-lavender/70 was ~2.8:1 ❌) */}
         <p className="mt-1 text-white/70 text-xs">
@@ -41,5 +41,5 @@ export default function App() {
         </p>
       </footer>
     </>
-  )
+  );
 }

@@ -1,12 +1,11 @@
 export default function AboutMe() {
   return (
     <section
-      id="about"
+      id="home"
       aria-labelledby="about-heading"
       className="min-h-screen flex items-center bg-[#E2DAF0]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-20 grid md:grid-cols-2 gap-12 md:gap-16 items-center w-full">
-
         {/* Text content */}
         <div>
           {/* Decorative greeting badge — hidden from AT since heading already greets */}
@@ -22,8 +21,7 @@ export default function AboutMe() {
             id="about-heading"
             className="text-4xl md:text-5xl font-bold text-dark-gray leading-tight mb-2"
           >
-            I'm{' '}
-            <span className="text-deep-purple">Your Name,</span>
+            I'm <span className="text-deep-purple">Your Name,</span>
             <br />
             a software
             <br />
@@ -38,8 +36,8 @@ export default function AboutMe() {
           </h1>
 
           <p className="text-dark-gray/80 text-base leading-relaxed mt-8 mb-8 max-w-sm">
-            I build inclusive digital experiences that work for everyone.
-            I'm passionate about bridging great design and equitable access.
+            I build inclusive digital experiences that work for everyone. I'm
+            passionate about bridging great design and equitable access.
           </p>
 
           <a
@@ -53,11 +51,10 @@ export default function AboutMe() {
 
         {/* Photo + decorations */}
         <div className="relative flex justify-center items-end h-72 sm:h-96">
-
           {/* Arch-shaped photo frame */}
           <div
             className="relative w-48 h-64 sm:w-60 sm:h-80 bg-deep-purple overflow-hidden"
-            style={{ borderRadius: '9999px 9999px 0 0' }}
+            style={{ borderRadius: "9999px 9999px 0 0" }}
             aria-hidden="true"
           >
             <img
@@ -67,11 +64,12 @@ export default function AboutMe() {
               width={240}
               height={320}
               onError={(e) => {
-                const target = e.currentTarget
-                target.style.display = 'none'
-                const parent = target.parentElement
+                const target = e.currentTarget;
+                target.style.display = "none";
+                const parent = target.parentElement;
                 if (parent) {
-                  parent.style.background = 'linear-gradient(to bottom, #4E3C51 0%, #B6A5D0 100%)'
+                  parent.style.background =
+                    "linear-gradient(to bottom, #4E3C51 0%, #B6A5D0 100%)";
                 }
               }}
             />
@@ -83,7 +81,7 @@ export default function AboutMe() {
             <svg
               viewBox="0 0 100 100"
               className="w-full h-full animate-spin"
-              style={{ animationDuration: '12s' }}
+              style={{ animationDuration: "12s" }}
               aria-hidden="true"
               focusable="false"
             >
@@ -93,12 +91,29 @@ export default function AboutMe() {
                   d="M50,50 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0"
                 />
               </defs>
-              <circle cx="50" cy="50" r="46" fill="white" stroke="#4E3C51" strokeWidth="1.5" />
-              <text fontSize="9.5" fontWeight="700" fill="#4E3C51" letterSpacing="2.2">
-                <textPath href="#badge-circle">I'M AVAILABLE • FOR FREELANCE •</textPath>
+              <circle
+                cx="50"
+                cy="50"
+                r="46"
+                fill="white"
+                stroke="#4E3C51"
+                strokeWidth="1.5"
+              />
+              <text
+                fontSize="9.5"
+                fontWeight="700"
+                fill="#4E3C51"
+                letterSpacing="2.2"
+              >
+                <textPath href="#badge-circle">
+                  I'M AVAILABLE • FOR FREELANCE •
+                </textPath>
               </text>
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              aria-hidden="true"
+            >
               <svg
                 viewBox="0 0 24 24"
                 className="w-5 h-5"
@@ -115,13 +130,32 @@ export default function AboutMe() {
           </div>
 
           {/* Decorative sparkles */}
-          <span className="absolute top-6 right-2 text-xl text-deep-purple/40 select-none leading-none" aria-hidden="true">✦</span>
-          <span className="absolute top-12 right-0 text-sm text-deep-purple/25 select-none leading-none" aria-hidden="true">✦</span>
-          <span className="absolute top-2 left-4 text-sm text-deep-purple/25 select-none leading-none" aria-hidden="true">✦</span>
-          <span className="absolute bottom-10 right-0 text-2xl text-deep-purple/30 select-none leading-none" aria-hidden="true">≋</span>
+          <span
+            className="absolute top-6 right-2 text-xl text-deep-purple/40 select-none leading-none"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+          <span
+            className="absolute top-12 right-0 text-sm text-deep-purple/25 select-none leading-none"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+          <span
+            className="absolute top-2 left-4 text-sm text-deep-purple/25 select-none leading-none"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+          <span
+            className="absolute bottom-10 right-0 text-2xl text-deep-purple/30 select-none leading-none"
+            aria-hidden="true"
+          >
+            ≋
+          </span>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

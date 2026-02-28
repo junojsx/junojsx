@@ -4,10 +4,11 @@ import { Download, Menu, X } from "lucide-react";
 import type { NavLink } from "@/types";
 
 const navLinks: NavLink[] = [
-  { label: "About", href: "#about" },
+  { label: "Home", href: "#home" },
+  { label: "Tech", href: "#tech" },
+  { label: "More About Me", href: "#more-about" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
-  { label: "Tech", href: "#tech" },
 ];
 
 export default function Navbar() {
@@ -80,7 +81,6 @@ export default function Navbar() {
         {/* Nav links */}
         <ul
           id="nav-menu"
-          role="list"
           className={[
             "absolute md:static top-full left-0 right-0",
             "bg-white md:bg-transparent border-b border-gray-200 md:border-none",
