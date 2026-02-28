@@ -1,52 +1,52 @@
-import { useState, type FormEvent } from 'react'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
-import { Github, Linkedin, Mail, Send } from 'lucide-react'
+import { useState, type FormEvent } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail, Send } from "lucide-react";
 
 const socialLinks = [
   {
-    href: 'mailto:you@example.com',
-    label: 'Send email to you@example.com',
+    href: "mailto:you@example.com",
+    label: "Send email to you@example.com",
     Icon: Mail,
     external: false,
   },
   {
-    href: 'https://github.com/yourusername',
-    label: 'GitHub profile (opens in new tab)',
+    href: "https://github.com/yourusername",
+    label: "GitHub profile (opens in new tab)",
     Icon: Github,
     external: true,
   },
   {
-    href: 'https://linkedin.com/in/yourprofile',
-    label: 'LinkedIn profile (opens in new tab)',
+    href: "https://linkedin.com/in/yourprofile",
+    label: "LinkedIn profile (opens in new tab)",
     Icon: Linkedin,
     external: true,
   },
-]
+];
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [submitting, setSubmitting] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitting, setSubmitting] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitting(true)
+    e.preventDefault();
+    setSubmitting(true);
     // Replace with Formspree, EmailJS, or your preferred service
     setTimeout(() => {
-      setSubmitting(false)
-      setStatus('success')
-    }, 800)
+      setSubmitting(false);
+      setStatus("success");
+    }, 800);
   }
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-light-gray py-16 sm:py-24"
+      className="bg-light-gray  h-[100vh]  py-16 sm:py-24 relative overflow-hidden"
     >
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto pt-20 px-4">
         {/* Decorative label — aria-hidden since heading already describes the section */}
         <p
           className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3"
@@ -61,8 +61,8 @@ export default function Contact() {
           Get in Touch
         </h2>
         <p className="text-center text-dark-gray/70 mb-10 max-w-md mx-auto">
-          Available for full-time roles, freelance work, and accessibility consulting.
-          I'd love to hear about what you're building.
+          Available for full-time roles, freelance work, and accessibility
+          consulting. I'd love to hear about what you're building.
         </p>
 
         {/* Social links */}
@@ -72,8 +72,8 @@ export default function Contact() {
               key={href}
               href={href}
               aria-label={label}
-              target={external ? '_blank' : undefined}
-              rel={external ? 'noopener noreferrer' : undefined}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
               className="p-3 rounded-full bg-deep-purple text-white
                          hover:bg-hover-active transition-colors"
             >
@@ -90,9 +90,14 @@ export default function Contact() {
           className="space-y-6 bg-white p-5 sm:p-8 rounded-2xl shadow-sm"
         >
           <div className="space-y-1.5">
-            <Label htmlFor="contact-name" className="text-dark-gray font-medium">
+            <Label
+              htmlFor="contact-name"
+              className="text-dark-gray font-medium"
+            >
               Name
-              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">
+                *
+              </span>
               <span className="sr-only">(required)</span>
             </Label>
             <Input
@@ -108,9 +113,14 @@ export default function Contact() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="contact-email" className="text-dark-gray font-medium">
+            <Label
+              htmlFor="contact-email"
+              className="text-dark-gray font-medium"
+            >
               Email
-              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">
+                *
+              </span>
               <span className="sr-only">(required)</span>
             </Label>
             <Input
@@ -126,9 +136,14 @@ export default function Contact() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="contact-message" className="text-dark-gray font-medium">
+            <Label
+              htmlFor="contact-message"
+              className="text-dark-gray font-medium"
+            >
               Message
-              <span aria-hidden="true" className="text-deep-purple ml-0.5">*</span>
+              <span aria-hidden="true" className="text-deep-purple ml-0.5">
+                *
+              </span>
               <span className="sr-only">(required)</span>
             </Label>
             <Textarea
@@ -144,22 +159,30 @@ export default function Contact() {
 
           <Button
             type="submit"
-            disabled={submitting || status === 'success'}
+            disabled={submitting || status === "success"}
             className="w-full bg-deep-purple hover:bg-hover-active text-white
                        disabled:opacity-60"
           >
             <Send className="mr-2 h-4 w-4" aria-hidden="true" />
-            {submitting ? 'Sending…' : status === 'success' ? 'Sent!' : 'Send Message'}
+            {submitting
+              ? "Sending…"
+              : status === "success"
+                ? "Sent!"
+                : "Send Message"}
           </Button>
 
           {/* Live region — announced by screen readers on state change */}
-          <div aria-live="polite" aria-atomic="true" className="text-center text-sm min-h-5">
-            {status === 'success' && (
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            className="text-center text-sm min-h-5"
+          >
+            {status === "success" && (
               <p className="text-soft-teal font-medium">
                 Message sent! I'll get back to you soon.
               </p>
             )}
-            {status === 'error' && (
+            {status === "error" && (
               <p className="text-red-600 font-medium" role="alert">
                 Something went wrong. Please try again or email me directly.
               </p>
@@ -168,5 +191,5 @@ export default function Contact() {
         </form>
       </div>
     </section>
-  )
+  );
 }

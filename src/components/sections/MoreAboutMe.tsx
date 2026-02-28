@@ -1,41 +1,55 @@
 const experiences = [
   {
-    period: 'JAN 2024 – PRESENT',
-    title: 'Senior Accessibility Engineer',
-    company: 'Company Name',
+    period: "JAN 2024 – PRESENT",
+    title: "Senior Accessibility Engineer",
+    company: "Company Name",
     description:
-      'Leading accessibility audits and remediation efforts. Establishing WCAG compliance standards and mentoring engineers on inclusive development practices.',
+      "Leading accessibility audits and remediation efforts. Establishing WCAG compliance standards and mentoring engineers on inclusive development practices.",
   },
   {
-    period: 'MAR 2021 – JAN 2024',
-    title: 'Frontend Developer',
-    company: 'Company Name',
+    period: "MAR 2021 – JAN 2024",
+    title: "Frontend Developer",
+    company: "Company Name",
     description:
-      'Built accessible, performant UI components in React and TypeScript. Collaborated with design teams to ensure inclusive experiences across products.',
+      "Built accessible, performant UI components in React and TypeScript. Collaborated with design teams to ensure inclusive experiences across products.",
   },
   {
-    period: 'JUN 2019 – MAR 2021',
-    title: 'UI Developer',
-    company: 'Company Name',
+    period: "JUN 2019 – MAR 2021",
+    title: "UI Developer",
+    company: "Company Name",
     description:
-      'Developed responsive interfaces and contributed to UI enhancements, debugging, and refining component libraries.',
+      "Developed responsive interfaces and contributed to UI enhancements, debugging, and refining component libraries.",
   },
-]
+];
 
 export default function MoreAboutMe() {
   return (
     <section
       id="more-about"
       aria-labelledby="more-about-heading"
-      className="bg-[#E2DAF0] py-16 sm:py-24 relative overflow-hidden"
+      className="bg-[#E2DAF0] flex items-center justify-center h-[100vh] py-16 sm:py-24 relative overflow-hidden"
     >
       {/* Decorative elements */}
-      <span className="absolute top-10 right-16 text-2xl text-deep-purple/20 select-none pointer-events-none" aria-hidden="true">♡</span>
-      <span className="absolute bottom-12 left-10 text-xl text-deep-purple/15 select-none pointer-events-none" aria-hidden="true">♡</span>
-      <span className="absolute bottom-20 right-8 text-sm text-deep-purple/20 select-none pointer-events-none" aria-hidden="true">✦</span>
+      <span
+        className="absolute top-10 right-16 text-2xl text-deep-purple/20 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ♡
+      </span>
+      <span
+        className="absolute bottom-12 left-10 text-xl text-deep-purple/15 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ♡
+      </span>
+      <span
+        className="absolute bottom-20 right-8 text-sm text-deep-purple/20 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ✦
+      </span>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-8 grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-start">
-
         {/* Left column */}
         <div className="flex flex-col items-center md:items-start gap-6">
           {/* Circular photo — decorative duplicate of hero photo */}
@@ -50,20 +64,24 @@ export default function MoreAboutMe() {
               width={192}
               height={192}
               onError={(e) => {
-                const t = e.currentTarget
-                t.style.display = 'none'
-                const p = t.parentElement
-                if (p) p.style.background = 'linear-gradient(135deg, #4E3C51, #B6A5D0)'
+                const t = e.currentTarget;
+                t.style.display = "none";
+                const p = t.parentElement;
+                if (p)
+                  p.style.background =
+                    "linear-gradient(135deg, #4E3C51, #B6A5D0)";
               }}
             />
           </div>
 
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-dark-gray mb-3">My experiences</h3>
+            <h3 className="text-xl font-bold text-dark-gray mb-3">
+              My experiences
+            </h3>
             <p className="text-dark-gray/80 text-sm leading-relaxed max-w-xs">
               I've had the pleasure of working across a variety of roles and
-              industries. I'm always interested in new, exciting, and challenging
-              opportunities.
+              industries. I'm always interested in new, exciting, and
+              challenging opportunities.
             </p>
           </div>
 
@@ -97,14 +115,14 @@ export default function MoreAboutMe() {
           </h2>
 
           <p className="text-dark-gray/80 text-sm leading-relaxed mb-3">
-            I'm a software accessibility engineer passionate about crafting digital
-            experiences that are inclusive by design. I combine deep technical knowledge
-            with a commitment to equitable access.
+            I'm a software accessibility engineer passionate about crafting
+            digital experiences that are inclusive by design. I combine deep
+            technical knowledge with a commitment to equitable access.
           </p>
           <p className="text-dark-gray/80 text-sm leading-relaxed mb-10">
-            My journey in this field has been driven by a belief that the best software
-            works for everyone — leveraging modern technologies while keeping people at
-            the center of every decision.
+            My journey in this field has been driven by a belief that the best
+            software works for everyone — leveraging modern technologies while
+            keeping people at the center of every decision.
           </p>
 
           {/* Work experience timeline */}
@@ -124,12 +142,15 @@ export default function MoreAboutMe() {
                   aria-hidden="true"
                 />
 
-                <time className="text-xs text-dark-gray/60 font-medium block mb-1">
+                <time className="text-xs text-dark-gray/75 font-medium block mb-1">
                   {exp.period}
                 </time>
                 <h4 className="font-bold text-dark-gray text-sm">
                   {exp.title}
-                  <span className="font-normal text-dark-gray/60"> at {exp.company}</span>
+                  <span className="font-normal text-dark-gray/75">
+                    {" "}
+                    at {exp.company}
+                  </span>
                 </h4>
                 <p className="text-dark-gray/75 text-xs leading-relaxed mt-1">
                   {exp.description}
@@ -138,8 +159,7 @@ export default function MoreAboutMe() {
             ))}
           </ol>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

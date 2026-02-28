@@ -1,58 +1,73 @@
-import { Code, Layers, Wrench, Database } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Code, Layers, Wrench, Database } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const categories: {
-  Icon: LucideIcon
-  title: string
-  description: string
-  bg: string
-  iconBg: string
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+  bg: string;
+  iconBg: string;
 }[] = [
   {
     Icon: Code,
-    title: 'Languages',
+    title: "Languages",
     description:
-      'TypeScript & JavaScript — type-safe, modern web development with excellent tooling and ecosystem support.',
-    bg: 'bg-[#DDD6F0]',
-    iconBg: 'bg-[#C9BEE8]',
+      "TypeScript & JavaScript — type-safe, modern web development with excellent tooling and ecosystem support.",
+    bg: "bg-[#DDD6F0]",
+    iconBg: "bg-[#C9BEE8]",
   },
   {
     Icon: Layers,
-    title: 'Frameworks & Styling',
+    title: "Frameworks & Styling",
     description:
-      'React, Tailwind CSS, and Vite for component-driven, accessible UI built quickly and maintainably.',
-    bg: 'bg-[#D4EDD4]',
-    iconBg: 'bg-[#B8DDB8]',
+      "React, Tailwind CSS, and Vite for component-driven, accessible UI built quickly and maintainably.",
+    bg: "bg-[#D4EDD4]",
+    iconBg: "bg-[#B8DDB8]",
   },
   {
     Icon: Wrench,
-    title: 'Dev Tools & Testing',
+    title: "Dev Tools & Testing",
     description:
-      'Git, GitHub, Jest, and Figma to maintain quality and consistency across design and development.',
-    bg: 'bg-[#F0D8E8]',
-    iconBg: 'bg-[#E8C4D8]',
+      "Git, GitHub, Jest, and Figma to maintain quality and consistency across design and development.",
+    bg: "bg-[#F0D8E8]",
+    iconBg: "bg-[#E8C4D8]",
   },
   {
     Icon: Database,
-    title: 'Platforms & Data',
+    title: "Platforms & Data",
     description:
-      'Node.js, PostgreSQL, and Docker for scalable, containerized, production-ready backend services.',
-    bg: 'bg-[#D4E8F4]',
-    iconBg: 'bg-[#B8D8EE]',
+      "Node.js, PostgreSQL, and Docker for scalable, containerized, production-ready backend services.",
+    bg: "bg-[#D4E8F4]",
+    iconBg: "bg-[#B8D8EE]",
   },
-]
+];
 
 export default function TechStack() {
   return (
     <section
       id="tech"
       aria-labelledby="tech-heading"
-      className="bg-white py-16 sm:py-24 relative overflow-hidden"
+      className="bg-white h-[100vh] mx-auto flex items-center justify-center py-16 sm:py-24 relative overflow-hidden"
     >
       {/* Decorative elements */}
-      <span className="absolute top-16 left-12 text-3xl text-dark-gray/15 select-none pointer-events-none" aria-hidden="true">⚡</span>
-      <span className="absolute top-10 right-16 text-xl text-dark-gray/15 select-none pointer-events-none" aria-hidden="true">✦</span>
-      <span className="absolute top-20 right-10 text-sm text-dark-gray/10 select-none pointer-events-none" aria-hidden="true">✦</span>
+      <span
+        className="absolute top-16 left-12 text-3xl text-dark-gray/15 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ⚡
+      </span>
+      <span
+        className="absolute top-10 right-16 text-xl text-dark-gray/15 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ✦
+      </span>
+      <span
+        className="absolute top-20 right-10 text-sm text-dark-gray/10 select-none pointer-events-none"
+        aria-hidden="true"
+      >
+        ✦
+      </span>
 
       <div className="max-w-3xl mx-auto px-4">
         {/* Badge */}
@@ -68,7 +83,8 @@ export default function TechStack() {
           id="tech-heading"
           className="text-3xl md:text-4xl font-bold text-dark-gray text-center mb-12 leading-tight"
         >
-          The tools I use to build<br />
+          The tools I use to build
+          <br />
           fast, accessible software.
         </h2>
 
@@ -87,8 +103,13 @@ export default function TechStack() {
                 <Icon className="w-6 h-6 text-dark-gray" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="font-bold text-dark-gray text-base mb-2">{title}</h3>
-                <p className="text-dark-gray/70 text-sm leading-relaxed">{description}</p>
+                <h3 className="font-bold text-dark-gray text-base mb-2">
+                  {title}
+                </h3>
+                {/* /80 on tinted card bg (~#DDD6F0) → ~5.9:1 ✅  (/70 was ~4.4:1 ❌) */}
+                <p className="text-dark-gray/80 text-sm leading-relaxed">
+                  {description}
+                </p>
               </div>
             </li>
           ))}
@@ -106,5 +127,5 @@ export default function TechStack() {
         </div>
       </div>
     </section>
-  )
+  );
 }

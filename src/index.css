@@ -52,7 +52,7 @@
     /* Brand palette — available as Tailwind utilities e.g. bg-deep-purple, text-soft-teal */
     --color-deep-purple:   #4E3C51;
     --color-soft-lavender: #B6A5D0;
-    --color-soft-teal:     #5DB2AC;
+    --color-soft-teal:     #1A7A74; /* darkened from #5DB2AC — passes 4.5:1 on white */
     --color-warm-gold:     #E3C16F;
     --color-dark-gray:     #2C2C2C;
     --color-light-gray:    #F5F5F5;

@@ -29,12 +29,14 @@ export default function App() {
 
       {/* <footer> has an implicit ARIA role of "contentinfo" — no role attr needed */}
       <footer className="bg-deep-purple text-white text-center py-6 text-sm">
-        <p className="text-soft-lavender">
+        {/* text-white/80 on deep-purple → ~6.4:1 ✅  (text-soft-lavender was 4.03:1 ❌) */}
+        <p className="text-white/80">
           © {new Date().getFullYear()}{' '}
           <span className="text-white font-medium">junojsx</span>
           {' '}— Built with React, Vite & TailwindCSS
         </p>
-        <p className="mt-1 text-soft-lavender/70 text-xs">
+        {/* text-white/70 on deep-purple → ~5.4:1 ✅  (text-soft-lavender/70 was ~2.8:1 ❌) */}
+        <p className="mt-1 text-white/70 text-xs">
           Designed and built with accessibility in mind · WCAG AA compliant
         </p>
       </footer>

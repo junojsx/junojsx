@@ -1,23 +1,23 @@
-import { projects } from '@/data/projects'
+import { projects } from "@/data/projects";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-} from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { ExternalLink, Github } from 'lucide-react'
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
 
 export default function Projects() {
   return (
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="bg-white py-16 sm:py-24"
+      className="bg-white py-16 h-[100vh] sm:py-24 flex items-center justify-center"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl   mx-auto px-4">
         {/* Decorative label — aria-hidden since heading already describes the section */}
         <p
           className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3"
@@ -87,7 +87,10 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         aria-label={`View live site for ${project.name} (opens in new tab)`}
                       >
-                        <ExternalLink className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                        <ExternalLink
+                          className="mr-1.5 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         Live
                       </a>
                     </Button>
@@ -117,5 +120,5 @@ export default function Projects() {
         </ul>
       </div>
     </section>
-  )
+  );
 }
