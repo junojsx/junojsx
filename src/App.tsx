@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar'
 import AboutMe from '@/components/sections/AboutMe'
 import TechStack from '@/components/sections/TechStack'
+import MoreAboutMe from '@/components/sections/MoreAboutMe'
 import Projects from '@/components/sections/Projects'
 import Contact from '@/components/sections/Contact'
 
@@ -21,14 +22,13 @@ export default function App() {
       <main id="main-content" tabIndex={-1} className="outline-none">
         <AboutMe />
         <TechStack />
+        <MoreAboutMe />
         <Projects />
         <Contact />
       </main>
 
-      <footer
-        role="contentinfo"
-        className="bg-deep-purple text-white text-center py-6 text-sm"
-      >
+      {/* <footer> has an implicit ARIA role of "contentinfo" — no role attr needed */}
+      <footer className="bg-deep-purple text-white text-center py-6 text-sm">
         <p className="text-soft-lavender">
           © {new Date().getFullYear()}{' '}
           <span className="text-white font-medium">junojsx</span>

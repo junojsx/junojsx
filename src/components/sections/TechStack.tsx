@@ -1,53 +1,109 @@
-import { techStack } from '@/data/techStack'
+import { Code, Layers, Wrench, Database } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
+const categories: {
+  Icon: LucideIcon
+  title: string
+  description: string
+  bg: string
+  iconBg: string
+}[] = [
+  {
+    Icon: Code,
+    title: 'Languages',
+    description:
+      'TypeScript & JavaScript — type-safe, modern web development with excellent tooling and ecosystem support.',
+    bg: 'bg-[#DDD6F0]',
+    iconBg: 'bg-[#C9BEE8]',
+  },
+  {
+    Icon: Layers,
+    title: 'Frameworks & Styling',
+    description:
+      'React, Tailwind CSS, and Vite for component-driven, accessible UI built quickly and maintainably.',
+    bg: 'bg-[#D4EDD4]',
+    iconBg: 'bg-[#B8DDB8]',
+  },
+  {
+    Icon: Wrench,
+    title: 'Dev Tools & Testing',
+    description:
+      'Git, GitHub, Jest, and Figma to maintain quality and consistency across design and development.',
+    bg: 'bg-[#F0D8E8]',
+    iconBg: 'bg-[#E8C4D8]',
+  },
+  {
+    Icon: Database,
+    title: 'Platforms & Data',
+    description:
+      'Node.js, PostgreSQL, and Docker for scalable, containerized, production-ready backend services.',
+    bg: 'bg-[#D4E8F4]',
+    iconBg: 'bg-[#B8D8EE]',
+  },
+]
 
 export default function TechStack() {
   return (
     <section
       id="tech"
       aria-labelledby="tech-heading"
-      className="bg-light-gray py-24"
+      className="bg-white py-16 sm:py-24 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <p className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3">
-          What I work with
-        </p>
+      {/* Decorative elements */}
+      <span className="absolute top-16 left-12 text-3xl text-dark-gray/15 select-none pointer-events-none" aria-hidden="true">⚡</span>
+      <span className="absolute top-10 right-16 text-xl text-dark-gray/15 select-none pointer-events-none" aria-hidden="true">✦</span>
+      <span className="absolute top-20 right-10 text-sm text-dark-gray/10 select-none pointer-events-none" aria-hidden="true">✦</span>
+
+      <div className="max-w-3xl mx-auto px-4">
+        {/* Badge */}
+        <div className="flex justify-center mb-5" aria-hidden="true">
+          <div className="inline-flex items-center gap-2 border border-dark-gray/25 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-dark-gray">
+            <span className="w-2 h-2 rounded-full bg-soft-teal" />
+            My Tech Stack
+          </div>
+        </div>
+
+        {/* Heading */}
         <h2
           id="tech-heading"
-          className="text-3xl font-bold text-dark-gray text-center mb-4"
+          className="text-3xl md:text-4xl font-bold text-dark-gray text-center mb-12 leading-tight"
         >
-          Tech Stack
+          The tools I use to build<br />
+          fast, accessible software.
         </h2>
-        <p className="text-center text-dark-gray/70 mb-14 max-w-xl mx-auto">
-          Tools and technologies I use to build fast, accessible, and maintainable software.
-        </p>
 
+        {/* 2×2 category cards */}
         <ul
           role="list"
-          aria-label="Technologies I use"
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"
+          aria-label="Technology categories"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
-          {techStack.map((tech) => (
+          {categories.map(({ Icon, title, description, bg, iconBg }) => (
             <li
-              key={tech.name}
-              className="flex flex-col items-center gap-3 p-4 rounded-xl
-                         bg-white shadow-sm hover:shadow-md transition-all
-                         hover:ring-2 hover:ring-soft-lavender hover:-translate-y-0.5"
+              key={title}
+              className={`${bg} rounded-2xl p-6 flex gap-4 items-start`}
             >
-              <img
-                src={tech.iconUrl}
-                alt=""
-                aria-hidden="true"
-                className="w-10 h-10 object-contain"
-                loading="lazy"
-                width={40}
-                height={40}
-              />
-              <span className="text-xs font-medium text-dark-gray text-center leading-tight">
-                {tech.name}
-              </span>
+              <div className={`${iconBg} rounded-full p-3 shrink-0 mt-0.5`}>
+                <Icon className="w-6 h-6 text-dark-gray" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-bold text-dark-gray text-base mb-2">{title}</h3>
+                <p className="text-dark-gray/70 text-sm leading-relaxed">{description}</p>
+              </div>
             </li>
           ))}
         </ul>
+
+        {/* CTA */}
+        <div className="flex justify-center mt-10">
+          <a
+            href="#projects"
+            className="inline-block border-2 border-dark-gray text-dark-gray px-6 py-3
+                       rounded-lg font-medium text-sm hover:bg-dark-gray hover:text-white transition-colors"
+          >
+            Check Projects
+          </a>
+        </div>
       </div>
     </section>
   )

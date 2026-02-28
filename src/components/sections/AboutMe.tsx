@@ -3,75 +3,125 @@ export default function AboutMe() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="min-h-screen flex items-center bg-white"
+      className="min-h-screen flex items-center bg-[#E2DAF0]"
     >
-      <div className="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-20 grid md:grid-cols-2 gap-12 md:gap-16 items-center w-full">
+
         {/* Text content */}
         <div>
-          <p className="text-soft-teal font-semibold uppercase tracking-widest text-sm mb-3">
-            Software Accessibility Engineer
-          </p>
+          {/* Decorative greeting badge — hidden from AT since heading already greets */}
+          <div
+            className="inline-flex items-center gap-2 border border-dark-gray/25 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-dark-gray mb-8 bg-white/40"
+            aria-hidden="true"
+          >
+            <span className="w-2 h-2 rounded-full bg-soft-teal" />
+            Hello!
+          </div>
+
           <h1
             id="about-heading"
-            className="text-4xl md:text-5xl font-bold text-dark-gray mb-6 leading-tight"
+            className="text-4xl md:text-5xl font-bold text-dark-gray leading-tight mb-2"
           >
-            Hi, I'm <span className="text-deep-purple">Your Name</span>
+            I'm{' '}
+            <span className="text-deep-purple">Your Name,</span>
+            <br />
+            a software
+            <br />
+            <span className="relative inline-block">
+              accessibility engineer.
+              {/* Decorative underline — purely visual */}
+              <span
+                className="absolute -bottom-1 left-0 h-[3px] w-3/4 rounded-full bg-warm-gold"
+                aria-hidden="true"
+              />
+            </span>
           </h1>
-          <p className="text-dark-gray/80 text-lg leading-relaxed mb-8">
-            I build inclusive digital experiences that work for everyone. With a
-            background in software engineering and deep expertise in web
-            accessibility, I bridge the gap between great design and equitable
-            access — writing code that meets WCAG standards without sacrificing
-            performance or aesthetics.
+
+          <p className="text-dark-gray/80 text-base leading-relaxed mt-8 mb-8 max-w-sm">
+            I build inclusive digital experiences that work for everyone.
+            I'm passionate about bridging great design and equitable access.
           </p>
-          <div className="flex gap-4 flex-wrap">
-            <a
-              href="#projects"
-              className="inline-block bg-deep-purple text-white px-6 py-3 rounded-lg font-medium
-                         hover:bg-hover-active transition-colors"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="inline-block border-2 border-deep-purple text-deep-purple px-6 py-3
-                         rounded-lg font-medium hover:bg-soft-lavender/20 transition-colors"
-            >
-              Get in Touch
-            </a>
-          </div>
+
+          <a
+            href="#projects"
+            className="inline-block border-2 border-dark-gray text-dark-gray px-6 py-3
+                       rounded-lg font-medium hover:bg-dark-gray hover:text-white transition-colors"
+          >
+            See My Work
+          </a>
         </div>
 
-        {/* Profile image */}
-        <div className="flex justify-center">
-          <div className="relative w-7xl h-7xl">
+        {/* Photo + decorations */}
+        <div className="relative flex justify-center items-end h-72 sm:h-96">
+
+          {/* Arch-shaped photo frame */}
+          <div
+            className="relative w-48 h-64 sm:w-60 sm:h-80 bg-deep-purple overflow-hidden"
+            style={{ borderRadius: '9999px 9999px 0 0' }}
+            aria-hidden="true"
+          >
             <img
               src="justin.png"
-              alt="Portrait photo of Your Name, software accessibility engineer"
-              className="w-full h-full object-cover"
-              width={288}
-              height={288}
+              alt=""
+              className="w-full h-full object-cover object-top"
+              width={240}
+              height={320}
               onError={(e) => {
-                // Fallback to a colored placeholder if image is missing
-                const target = e.currentTarget;
-                target.style.display = "none";
-                const parent = target.parentElement;
+                const target = e.currentTarget
+                target.style.display = 'none'
+                const parent = target.parentElement
                 if (parent) {
-                  parent.style.background =
-                    "linear-gradient(135deg, #4E3C51, #B6A5D0)";
-                  const initials = document.createElement("span");
-                  initials.textContent = "YN";
-                  initials.setAttribute("aria-hidden", "true");
-                  initials.style.cssText =
-                    "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;" +
-                    "font-size:4rem;font-weight:700;color:#ffffff;font-family:Inter,sans-serif";
-                  parent.appendChild(initials);
+                  parent.style.background = 'linear-gradient(to bottom, #4E3C51 0%, #B6A5D0 100%)'
                 }
               }}
             />
           </div>
+
+          {/* Availability badge — spinning ring with sr-only text for AT */}
+          <div className="absolute top-0 right-2 sm:right-6 w-20 h-20 sm:w-24 sm:h-24">
+            <p className="sr-only">Available for freelance work</p>
+            <svg
+              viewBox="0 0 100 100"
+              className="w-full h-full animate-spin"
+              style={{ animationDuration: '12s' }}
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <path
+                  id="badge-circle"
+                  d="M50,50 m-32,0 a32,32 0 1,1 64,0 a32,32 0 1,1 -64,0"
+                />
+              </defs>
+              <circle cx="50" cy="50" r="46" fill="white" stroke="#4E3C51" strokeWidth="1.5" />
+              <text fontSize="9.5" fontWeight="700" fill="#4E3C51" letterSpacing="2.2">
+                <textPath href="#badge-circle">I'M AVAILABLE • FOR FREELANCE •</textPath>
+              </text>
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                className="w-5 h-5"
+                fill="none"
+                stroke="#4E3C51"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                focusable="false"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Decorative sparkles */}
+          <span className="absolute top-6 right-2 text-xl text-deep-purple/40 select-none leading-none" aria-hidden="true">✦</span>
+          <span className="absolute top-12 right-0 text-sm text-deep-purple/25 select-none leading-none" aria-hidden="true">✦</span>
+          <span className="absolute top-2 left-4 text-sm text-deep-purple/25 select-none leading-none" aria-hidden="true">✦</span>
+          <span className="absolute bottom-10 right-0 text-2xl text-deep-purple/30 select-none leading-none" aria-hidden="true">≋</span>
         </div>
+
       </div>
     </section>
-  );
+  )
 }

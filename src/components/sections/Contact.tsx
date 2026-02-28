@@ -44,10 +44,14 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-light-gray py-24"
+      className="bg-light-gray py-16 sm:py-24"
     >
       <div className="max-w-2xl mx-auto px-4">
-        <p className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3">
+        {/* Decorative label — aria-hidden since heading already describes the section */}
+        <p
+          className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3"
+          aria-hidden="true"
+        >
           Let's connect
         </p>
         <h2
@@ -83,7 +87,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           aria-label="Contact form"
           noValidate
-          className="space-y-6 bg-white p-8 rounded-2xl shadow-sm"
+          className="space-y-6 bg-white p-5 sm:p-8 rounded-2xl shadow-sm"
         >
           <div className="space-y-1.5">
             <Label htmlFor="contact-name" className="text-dark-gray font-medium">

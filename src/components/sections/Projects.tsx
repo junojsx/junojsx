@@ -5,7 +5,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -16,10 +15,14 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="bg-white py-24"
+      className="bg-white py-16 sm:py-24"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <p className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3">
+        {/* Decorative label — aria-hidden since heading already describes the section */}
+        <p
+          className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3"
+          aria-hidden="true"
+        >
           What I've built
         </p>
         <h2
@@ -48,12 +51,13 @@ export default function Projects() {
                              hover:border-soft-lavender hover:shadow-md transition-all"
                 >
                   <CardHeader>
-                    <CardTitle
+                    {/* h3 gives project titles a proper place in the document outline */}
+                    <h3
                       id={`project-title-${project.id}`}
-                      className="text-deep-purple text-xl"
+                      className="font-semibold leading-none tracking-tight text-deep-purple text-xl"
                     >
                       {project.name}
-                    </CardTitle>
+                    </h3>
                     <CardDescription className="text-dark-gray/70 leading-relaxed">
                       {project.description}
                     </CardDescription>
