@@ -28,7 +28,7 @@ export default function App() {
       </main>
 
       {/* <footer> has an implicit ARIA role of "contentinfo" — no role attr needed */}
-      <footer className="bg-deep-purple text-white text-center py-6 text-sm">
+      <footer className="border-t-2 border-black bg-deep-purple text-white text-center py-6 text-sm">
         {/* text-white/80 on deep-purple → ~6.4:1 ✅  (text-soft-lavender was 4.03:1 ❌) */}
         <p className="text-white/80">
           © {new Date().getFullYear()}{" "}

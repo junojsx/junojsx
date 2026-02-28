@@ -15,7 +15,7 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="bg-white py-16 h-[100vh] sm:py-24 flex items-center justify-center"
+      className="border-t-2 border-black bg-white py-16 h-[100vh] sm:py-24 flex items-center justify-center"
     >
       <div className="max-w-6xl   mx-auto px-4">
         {/* Decorative label — aria-hidden since heading already describes the section */}
@@ -47,7 +47,7 @@ export default function Projects() {
                 className="h-full"
               >
                 <Card
-                  className="h-full flex flex-col border-soft-lavender/40
+                  className="h-full flex flex-col border-soft-lavender/100
                              hover:border-soft-lavender hover:shadow-md transition-all"
                 >
                   <CardHeader>

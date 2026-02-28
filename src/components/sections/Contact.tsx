@@ -44,9 +44,9 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-light-gray  h-[100vh]  py-16 sm:py-24 relative overflow-hidden"
+      className=" bg-light-gray  h-[100vh]  py-16 sm:py-24 relative overflow-hidden border-t-2 border-black"
     >
-      <div className="max-w-4xl mx-auto pt-20 px-4">
+      <div className=" max-w-4xl mx-auto pt-20 px-4">
         {/* Decorative label — aria-hidden since heading already describes the section */}
         <p
           className="text-soft-teal font-semibold uppercase tracking-widest text-sm text-center mb-3"

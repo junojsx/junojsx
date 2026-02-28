@@ -47,7 +47,7 @@ export default function TechStack() {
     <section
       id="tech"
       aria-labelledby="tech-heading"
-      className="bg-white h-[100vh] mx-auto flex items-center justify-center py-16 sm:py-24 relative overflow-hidden"
+      className="bg-white h-[100vh] mx-auto flex items-center justify-center py-16 sm:py-24 relative overflow-hidden border-t-2 border-black"
     >
       {/* Decorative elements */}
       <span
@@ -97,7 +97,7 @@ export default function TechStack() {
           {categories.map(({ Icon, title, description, bg, iconBg }) => (
             <li
               key={title}
-              className={`${bg} rounded-2xl p-6 flex gap-4 items-start`}
+              className={`${bg} border-t-2 border-black border-inherit rounded-2xl p-6 flex gap-4 items-start`}
             >
               <div className={`${iconBg} rounded-full p-3 shrink-0 mt-0.5`}>
                 <Icon className="w-6 h-6 text-dark-gray" aria-hidden="true" />

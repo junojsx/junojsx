@@ -13,7 +13,7 @@ export default function Home() {
     <section
       id="home"
       aria-labelledby="about-heading"
-      className="min-h-screen flex items-center bg-[#E2DAF0]"
+      className="min-h-screen flex items-center bg-[#E2DAF0] border-t-2 border-black"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-20 grid md:grid-cols-2 gap-12 md:gap-16 items-center w-full">
         {/* Text content */}
@@ -61,7 +61,10 @@ export default function Home() {
         </div>
 
         {/* Photo + decorations — hidden below sm to prevent reflow issues */}
-        <div className="hidden sm:flex relative justify-center items-end h-80 sm:h-[30rem]" aria-hidden="true">
+        <div
+          className="hidden sm:flex relative justify-center items-end h-80 sm:h-[30rem]"
+          aria-hidden="true"
+        >
           {/* Arch-shaped photo frame — larger than before */}
           <div
             className="relative w-56 h-72 sm:w-100 sm:h-120 bg-deep-purple overflow-hidden"
@@ -176,25 +179,30 @@ export default function Home() {
 
           {/* Decorative sparkles */}
           <span
-            className="absolute top-6 right-2 text-xl text-deep-purple/40 select-none leading-none"
+            className="absolute top-6 right-2 sm:left-4 text-3xl select-none leading-none"
+            style={{ color: "transparent", WebkitTextStroke: "2px #4E3C51" }}
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+
+          <span
+            className="absolute top-12  right-0 text-xl select-none leading-none"
+            style={{ color: "transparent", WebkitTextStroke: "1.5px #4E3C51" }}
             aria-hidden="true"
           >
             ✦
           </span>
           <span
-            className="absolute top-12 right-0 text-sm text-deep-purple/25 select-none leading-none"
+            className="absolute top-2 left-4 text-xl select-none leading-none"
+            style={{ color: "transparent", WebkitTextStroke: "1.5px #4E3C51" }}
             aria-hidden="true"
           >
             ✦
           </span>
           <span
-            className="absolute top-2 left-4 text-sm text-deep-purple/25 select-none leading-none"
-            aria-hidden="true"
-          >
-            ✦
-          </span>
-          <span
-            className="absolute bottom-10 right-0 text-2xl text-deep-purple/30 select-none leading-none"
+            className="absolute bottom-12 right-1 text-4xl select-none leading-none"
+            style={{ color: "transparent", WebkitTextStroke: "2px #4E3C51" }}
             aria-hidden="true"
           >
             ≋
